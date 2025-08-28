@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
 <div class="col-md-8 offset-md-2">
   <h2>{{ user_profile.username }}'s Profile</h2>
@@ -6,8 +8,8 @@
 
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Update Profile</button>
+    {{ form|crispy }}
+    <button type="submit" class="button">Update Profile</button>
   </form>
 </div>
 {% endblock %}
